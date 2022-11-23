@@ -16,6 +16,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  if (req.query.secret !== process.env.SECRET) {
+    res.status(401).json({ url: req.query.url });
+    return;
+  }
   if (!req.query.url || Array.isArray(req.query.url)) {
     res.status(400).json({ url: req.query.url });
     return;
