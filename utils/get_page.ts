@@ -1,3 +1,4 @@
+require('puppeteer')
 import createBrowserless from "browserless";
 import getHTML from "html-get";
 import { JSDOM } from "jsdom";
